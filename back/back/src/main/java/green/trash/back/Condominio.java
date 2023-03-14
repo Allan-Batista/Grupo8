@@ -5,11 +5,40 @@ import java.util.List;
 
 public class Condominio {
 
-    //inquilinos no plural
+    private String email;
+    private String endereco;
     List<Usuario> inquilinos;
 
-    public Condominio(List<Usuario> inquilinos) {
+    public Condominio(String email, String endereco, List<Usuario> inquilinos) {
+        this.email = email;
+        this.endereco = endereco;
         this.inquilinos = new ArrayList<>();
+    }
+
+    public Condominio(){}
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public List<Usuario> getInquilinos() {
+        return inquilinos;
+    }
+
+    public void setInquilinos(List<Usuario> inquilinos) {
+        this.inquilinos = inquilinos;
     }
 
     public void addInquilino(Usuario novoUsuario){
@@ -18,16 +47,22 @@ public class Condominio {
         }
     }
 
-    //Ideal é retornar a lista de inquilinos
     public List<Usuario> exibirInquilinos(){
         return inquilinos;
     }
 
-    //Precisa receber um inquilino
     public void removerInquilino(Usuario usuarioParaRemover){
         if(usuarioParaRemover != null){
             inquilinos.remove(usuarioParaRemover);
         }
     }
 
+    @Override
+    public String toString() {
+        return "Condominio{" +
+                "email='" + email + '\'' +
+                ", endereco='" + endereco + '\'' +
+                ", inquilinos=" + inquilinos +
+                '}';
+    }
 }
